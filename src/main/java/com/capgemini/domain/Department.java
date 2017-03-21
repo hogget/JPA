@@ -25,6 +25,12 @@ public class Department extends AbstractEntity {
 	private Long id;
 	@Column(nullable = false, length = 45)
 	private String name;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 
 //	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //	@JoinColumn(name = "department_id", referencedColumnName = "id_department")

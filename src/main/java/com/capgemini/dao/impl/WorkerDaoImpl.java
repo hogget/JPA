@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,6 +15,7 @@ import com.capgemini.dao.WorkerDao;
 import com.capgemini.domain.Worker;
 
 @Repository
+@Profile("mysql")
 public class WorkerDaoImpl extends AbstractDao<Worker, Long> implements WorkerDao {
 
 	@Autowired
@@ -23,8 +25,6 @@ public class WorkerDaoImpl extends AbstractDao<Worker, Long> implements WorkerDa
 	public Worker findByNameAndSurname(String name, String surname) {
 		MapSqlParameterSource nameAndSurnameParam = new MapSqlParameterSource("name", name);
 		nameAndSurnameParam.addValue("surname", surname);
-		// MapSqlParameterSource surnameParam = new
-		// MapSqlParameterSource("surname", surname);
 		List<Worker> workers = jdbcTemplate.query(
 				"SELECT * from WORKER w where w.name = :name and w.surname = :surname", nameAndSurnameParam,
 				new WorkerResultMapper());

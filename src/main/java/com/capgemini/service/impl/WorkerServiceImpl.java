@@ -29,10 +29,9 @@ public class WorkerServiceImpl implements WorkerService{
     }
 
 	@Override
-	public Worker getOne(Worker worker) {
-		workerDao.getOne(1L);
-		return worker;
-	}
+	public Worker getOne(Long id) {
+		return workerDao.getOne(id);
+		}
 
 	@Override
 	public List<Worker> findWorkerByName(String name) {
@@ -70,4 +69,11 @@ public class WorkerServiceImpl implements WorkerService{
 		return workerDao.findWorkerByDepartmetId(departmentId);
 	
 	}	
+	@Override
+	public void update(Worker worker){
+//		Worker worker2 = workerJpa.findOne(worker.getId());
+//		worker2.setName("Pawel");
+		workerDao.update(worker);
+		
+	}
 }

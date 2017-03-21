@@ -37,7 +37,7 @@ public class Worker extends AbstractEntity{
 		@Column (nullable = true, length = 10)
 	    private String mobilePhoneNumber;	
 		
-		@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+		@ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
 		@JoinColumn(name = "id_department")
 		private Department department;
 		
