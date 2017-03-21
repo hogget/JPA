@@ -16,7 +16,7 @@ public class BookDaoImpl extends AbstractDao<Book, Long> implements BookDao {
     public List<Book> findBookByTitle(String title) {
         TypedQuery<Book> query = entityManager.createQuery(
                 "select book from BookEntity book where upper(book.title) like concat(upper(:title), '%')", Book.class);
-        query.setParameter("title", title);
+        query.setParameter("title",  title);
         return query.getResultList();
     }
     
