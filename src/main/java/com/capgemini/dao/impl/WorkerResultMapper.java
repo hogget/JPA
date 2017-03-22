@@ -13,7 +13,6 @@ public class WorkerResultMapper implements RowMapper<Worker>{
 			Worker w = new Worker();
 			w.setName(rs.getString("name"));
 			w.setName(rs.getString("surname"));
-			
 			return w;
 		}
 

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.capgemini.domain.Worker;
 
-public interface WorkerDaoJpaRepository extends JpaRepository <Worker, Long>{
+public interface WorkerJpaRepository extends JpaRepository <Worker, Long>{
 	
 	public List<Worker> findByName (String name);
 	public List<Worker> findBySurname (String surname);

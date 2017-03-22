@@ -16,5 +16,5 @@ public interface WorkerService {
 	 public void deleteWorker (Long id);
 	 public List<Worker> findWorkerByDepartmentId(Long departmentId) ;
 	 public void update(Worker worker);
-
+	 public Worker findWorkerByNameAndSurname (String name, String surname);
 }

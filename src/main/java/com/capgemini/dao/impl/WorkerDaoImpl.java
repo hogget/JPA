@@ -54,19 +54,14 @@ public class WorkerDaoImpl extends AbstractDao<Worker, Long> implements WorkerDa
 				.createQuery("SELECT w FROM Worker w JOIN w.department d  WHERE d.id = :departmentId", Worker.class);
 		query.setParameter("departmentId", departmentId);
 		return query.getResultList();
-
 	}
 
 	@Override
 	public void saveWorker(Worker worker) {
-		// TODO Auto-generated method stub
-		
-	}
+		}
 
 	@Override
-	public void cleanUp() {
-		// TODO Auto-generated method stub
-		
+	public void cleanUp() {			
 	}
 
 }

@@ -5,6 +5,21 @@ import java.time.LocalDate;
 
 import javax.persistence.*;
 
+@NamedQueries({
+	@NamedQuery(name = "NumberOfProjectsThatInParticularTimeWorkedMoreThan10Workers", 
+				query = " select count(distinct project_id) from project_history v" 
+						+ "where (select count(*) from project_history" 
+						+ "where not (v.Date_from > Date_to or v.Date_to < Date_from) "
+						+ "and project_id = v.project_id and ID != v.ID) > 10 "),
+
+	@NamedQuery(name = "ProjectsThatInParticularTimeWorkedMoreThan10Workers", 
+				query="select distinct v.project_name from project_history v "
+					  + "join projects on v.project_id = projects.id"
+					  + "where (select count(*) from project_history" 
+					  + "where not (v.Date_from > Date_to or v.Date_to < Date_from)" 
+					  + "and project_id = v.project_id and ID != v.ID) > 10")
+						})
+
 @Entity
 @Table (name = "PROJECT_HISTORY")
 public class ProjectHistory  extends AbstractEntity implements Serializable{
@@ -93,6 +108,5 @@ public class ProjectHistory  extends AbstractEntity implements Serializable{
 		this.isLeader = isLeader;
 	}
 	
-
 	
 }

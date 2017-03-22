@@ -14,5 +14,3 @@ public interface WorkerDao extends Dao<Worker, Long> {
 	public Worker searchByDepartmentName (String departmentName);
 }
 
-//obsluz na poziomie serwisu wyjatki ze usuwasz z=cos nie istniejace lub dodajesz to co istnieje
-//

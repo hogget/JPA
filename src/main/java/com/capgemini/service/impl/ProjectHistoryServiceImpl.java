@@ -4,23 +4,26 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.capgemini.dao.ProjectHistoryDao;
 import com.capgemini.dao.ProjectJpaRespository;
-import com.capgemini.dao.WorkerDaoJpaRepository;
+import com.capgemini.dao.WorkerJpaRepository;
 import com.capgemini.domain.Function;
 import com.capgemini.domain.Project;
 import com.capgemini.domain.ProjectHistory;
 import com.capgemini.domain.Worker;
 import com.capgemini.service.ProjectHistoryService;
 
+
+@Service
 @Transactional
 public class ProjectHistoryServiceImpl implements ProjectHistoryService {
 	@Autowired
 	ProjectHistoryDao projectHistory;
 	@Autowired
-	WorkerDaoJpaRepository workerJpa;
+	WorkerJpaRepository workerJpa;
 	@Autowired
 	ProjectJpaRespository projectJpa;
 
@@ -51,7 +54,6 @@ public class ProjectHistoryServiceImpl implements ProjectHistoryService {
 		return findByWorkerAndProject;
 	}
 
-	//date to na current
 	@Override
 	public ProjectHistory removeWorkerFromProject(Worker worker, Project project) {
 		ProjectHistory findByWorkerAndProject = projectHistory.findByWorkerAndProject(worker, project);
