@@ -23,7 +23,7 @@ public abstract class AbstractDao<T, K extends Serializable> implements Dao<T, K
 
     @Override
     public T save(T entity) {
-        entityManager.persist(entity);
+        entityManager.merge(entity);
         return entity;
     }
 
@@ -44,6 +44,7 @@ public abstract class AbstractDao<T, K extends Serializable> implements Dao<T, K
         CriteriaQuery<T> criteriaQuery = builder.createQuery(getDomainClass());
         criteriaQuery.from(getDomainClass());
         TypedQuery<T> query = entityManager.createQuery(criteriaQuery);
+        
         return query.getResultList();
     }
 
