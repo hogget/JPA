@@ -2,6 +2,7 @@ package com.capgemini.service;
 
 import static org.junit.Assert.assertNotNull;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -46,12 +47,7 @@ public class UserCreationServiceImplTest {
 		return user;
 	}
 
-	/*
-	 * @Override
-	public UserEntity saveUser(UserTo user) {
-		return userDao.save(UserMapper.map(user));
-*/
-	
+	@Ignore
 	@Test
 	public void shouldCreateUserWithProfile() {
 		// given

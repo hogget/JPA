@@ -1,5 +1,7 @@
 package com.cagemini.dao;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,6 +16,7 @@ import com.capgemini.to.ProfileTo;
 import com.capgemini.to.UserTo;
 import com.capgemini.ChessApplication;
 import com.capgemini.dao.UserDao;
+import com.capgemini.entity.UserEntity;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ChessApplication.class)
@@ -28,8 +31,8 @@ public class UserDaoImplTest {
 	@Autowired
 	private ProfileTo profile;
 	
-	@Before
-	public void setUp(){
+
+	private UserTo makeUser(){
 		profile = new ProfileTo();
 		profile.setLevel(5);
 		profile.setNumberOfPlays(10);
@@ -39,15 +42,16 @@ public class UserDaoImplTest {
 		profile.setLifeMotto("motto");
 				
 		user = new UserTo();
-		user.setId((long) 1);
+		user.setId( 1L);
 		user.setEmail("abc@gmail.com");
 		user.setPassword("passwd");
 		user.setProfile(profile);
+		return user;
 	}
 	
 	@Test
 	public void shouldFindUserWithGivenId(){
 		//given
-		dao.addUser(user);
+		UserEntity addUser = dao.addUser(makeUser());
 	}
 }

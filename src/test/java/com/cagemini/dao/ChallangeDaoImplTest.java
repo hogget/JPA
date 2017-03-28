@@ -93,7 +93,6 @@ public class ChallangeDaoImplTest {
 		assertNotNull(actualChallange);
 		}	
 
-	@Ignore
 	@Test
 	@Transactional
 	@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
@@ -123,7 +122,7 @@ public class ChallangeDaoImplTest {
 		assertEquals(ChallangeStatus.ACCEPTED, acceptedChallange.getState());
 	}	
 	
-	@Ignore
+
 	@Transactional
 	@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
 	@Test(expected=ChallangeValidationException.class)
@@ -154,7 +153,7 @@ public class ChallangeDaoImplTest {
 		//that
 		assertEquals(3, challangesWithRequiredLevel.size());
 	}
-	@Ignore
+	
 	@Transactional
 	@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
 	@Test
@@ -183,7 +182,7 @@ public class ChallangeDaoImplTest {
 		// then
 		assertEquals(ChallangeStatus.CANCELLED, cancelledChallange.getState());
 	}
-	
+	@Ignore
 	@Test
 	@Transactional
 	@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
@@ -193,7 +192,6 @@ public class ChallangeDaoImplTest {
 		assertEquals(4, challangesOfOneUser.size());		
 	}
 	
-	@Ignore
 	@Test
 	@Transactional
 	@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
@@ -202,7 +200,6 @@ public class ChallangeDaoImplTest {
 		assertEquals(12, challanges.size());
 	}	
 	
-	@Ignore
 	@Test(expected=InvalidDataAccessApiUsageException.class)
 	public void shouldThrowInvalidDataAccessApiUsageExceptionWhenNoChallangesFound() throws ChallangeValidationException{
 		//given
